@@ -7,7 +7,8 @@ namespace fhir_spec_lib.Models
 {
     ///-------------------------------------------------------------------------------------------------
     /// <summary>
-    /// (Profile-only) This tab captures definitional information about the profile - who made 
+    /// (Profile-only) 
+    /// This tab captures definitional information about the profile - who made 
     /// it, what it's called, what it's for, etc. This information is not needed for resources and data 
     /// types because they are not separately maintained and published. The metadata for all FHIR 
     /// resources and data types is fixed.
@@ -16,11 +17,19 @@ namespace fhir_spec_lib.Models
     /// <remarks>Gino Canessa, 12/30/2019.</remarks>
     ///-------------------------------------------------------------------------------------------------
 
-    [SpreadsheetPage(
+    [ExcelTab(
         pageName:"Metadata",
-        fieldStructure:SpreadsheetPageAttribute.FieldNameStructures.NameValueRows
+        fieldStructure:ExcelTabAttribute.FieldNameStructures.NameValueRows,
+        allowedForProfile:ExcelTabAttribute.PageAllowedLevels.Required,
+        allowedForResource:ExcelTabAttribute.PageAllowedLevels.NotAllowed,
+        allowedForDataType:ExcelTabAttribute.PageAllowedLevels.NotAllowed,
+        description:
+            "(Profile-only) This tab captures definitional information about the profile - who made " +
+            "it, what it's called, what it's for, etc. This information is not needed for resources and data " +
+            "types because they are not separately maintained and published. The metadata for all FHIR " +
+            "resources and data types is fixed."
         )]
-    public class Metadata
+    public class TabMetadata
     {
         ///-------------------------------------------------------------------------------------------------
         /// <summary>
@@ -34,11 +43,12 @@ namespace fhir_spec_lib.Models
         /// <value>The id.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field:SpreadsheetField(
-            fieldNameLower:"id",
+        [field:ExcelField(
+            fieldName:"id",
             displayName:"Profile ID",
+            required:ExcelFieldAttribute.FieldRequiredLevels.Required,
             description:
-                "Required - string. This is a unique id for the profile within the build environment. " +
+                "Required. This is a unique id for the profile within the build environment. " +
                 "Normally human-readable, lower-case, dash-separated. If doing a \"general\" profile, " +
                 "this is the same as the [id] specified in the fhir.ini file. If doing a resource or " +
                 "data type-specific profile, the first word should be the focal resource or data type " +
@@ -56,9 +66,10 @@ namespace fhir_spec_lib.Models
         /// <value>The name.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: SpreadsheetField(
-            fieldNameLower: "name",
+        [field: ExcelField(
+            fieldName: "name",
             displayName: "Profile Name",
+            required: ExcelFieldAttribute.FieldRequiredLevels.Required, 
             description:
                 "This is a descriptive name for the profile. If doing a resource-specific profile, this " +
                 "should be the same as the 'Name' for the profile specified in the resource spreadsheet."
@@ -73,9 +84,10 @@ namespace fhir_spec_lib.Models
         /// <value>The authoring work group.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: SpreadsheetField(
-            fieldNameLower: "name.author",
+        [field: ExcelField(
+            fieldName: "name.author",
             displayName: "Owning WG Name",
+            required: ExcelFieldAttribute.FieldRequiredLevels.Required,
             description:
                 "This should be \"HL7 International - [owning work group name - e.g.Orders & Observations] WG\""
             )]
@@ -90,9 +102,10 @@ namespace fhir_spec_lib.Models
         /// <value>The owner reference.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: SpreadsheetField(
-            fieldNameLower: "name.reference",
+        [field: ExcelField(
+            fieldName: "name.reference",
             displayName: "Owning WG URL",
+            required: ExcelFieldAttribute.FieldRequiredLevels.Optional,
             description:
                 "This should be the URL for the owning work group on the HL7 website. E.g. " +
                 "http://hl7.org/Special/committees/orders"
@@ -108,9 +121,10 @@ namespace fhir_spec_lib.Models
         /// <value>The code.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: SpreadsheetField(
-            fieldNameLower: "code",
+        [field: ExcelField(
+            fieldName: "code",
             displayName: "Code (Reserved - do not use)",
+            required: ExcelFieldAttribute.FieldRequiredLevels.Prohibited,
             description:
                 "This isn't used at present and should be left blank. If you think you need it, talk to " +
                 "someone from the FMG."
@@ -127,9 +141,10 @@ namespace fhir_spec_lib.Models
         /// <value>The description.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: SpreadsheetField(
-            fieldNameLower: "description",
+        [field: ExcelField(
+            fieldName: "description",
             displayName: "Profile Description",
+            required: ExcelFieldAttribute.FieldRequiredLevels.Required,
             description:
                 "This is a short description that will be displayed when displaying lists of profiles. " +
                 "It's also what will show up as the description of the profile if no \"introduction\" " +
@@ -145,9 +160,10 @@ namespace fhir_spec_lib.Models
         /// <value>The status.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: SpreadsheetField(
-            fieldNameLower: "status",
+        [field: ExcelField(
+            fieldName: "status",
             displayName: "Profile Status",
+            required: ExcelFieldAttribute.FieldRequiredLevels.Required,
             description:
                 "This should be \"draft\". It will be changed when the profile goes normative."
             )]
@@ -162,9 +178,10 @@ namespace fhir_spec_lib.Models
         /// <value>The date.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: SpreadsheetField(
-            fieldNameLower: "date",
+        [field: ExcelField(
+            fieldName: "date",
             displayName: "Publish Date",
+            required: ExcelFieldAttribute.FieldRequiredLevels.Required,
             description:
                 "This should be set to the date the profile was first created. It will be changed when the " +
                 "profile goes normative."
@@ -185,9 +202,10 @@ namespace fhir_spec_lib.Models
         /// <value>The published structures.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: SpreadsheetField(
-            fieldNameLower: "published.structure",
+        [field: ExcelField(
+            fieldName: "published.structure",
             displayName: "Published Structure Names",
+            required: ExcelFieldAttribute.FieldRequiredLevels.Conditional,
             description:
                 "This is the name of a tab that defines one of the \"published\" structures for the profile. " +
                 "It must match the name of one of the tabs in the spreadsheet corresponding to a structure. It " +
@@ -208,9 +226,10 @@ namespace fhir_spec_lib.Models
         /// <value>The version.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: SpreadsheetField(
-            fieldNameLower: "version",
+        [field: ExcelField(
+            fieldName: "version",
             displayName: "Version",
+            required: ExcelFieldAttribute.FieldRequiredLevels.Prohibited,
             description:
                 "This should be omitted unless there are specific reasons to declare a business version for " +
                 "the profile"
@@ -226,9 +245,10 @@ namespace fhir_spec_lib.Models
         /// <value>The extension URI.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: SpreadsheetField(
-            fieldNameLower: "extension.uri",
+        [field: ExcelField(
+            fieldName: "extension.uri",
             displayName: "Profile Base URI",
+            required: ExcelFieldAttribute.FieldRequiredLevels.Required,
             description:
                 "This provides the base URI for extensions and search criteria as well as for structures " +
                 "referenced in other profiles. It also forms the \"identifier\" for the profile."
@@ -244,9 +264,10 @@ namespace fhir_spec_lib.Models
         /// <value>The filename of the introduction file.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: SpreadsheetField(
-            fieldNameLower: "introduction",
+        [field: ExcelField(
+            fieldName: "introduction",
             displayName: "Introduction HTML Filename",
+            required: ExcelFieldAttribute.FieldRequiredLevels.Conditional,
             description:
                 "This is the full name of the \"introduction\" HTML file (if one exists). This name must be " +
                 "specified for the introduction to be rendered."
@@ -262,9 +283,10 @@ namespace fhir_spec_lib.Models
         /// <value>The filename of the notes file.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: SpreadsheetField(
-            fieldNameLower: "notes",
+        [field: ExcelField(
+            fieldName: "notes",
             displayName: "Notes HTML Filename",
+            required: ExcelFieldAttribute.FieldRequiredLevels.Conditional,
             description:
                 "This is the full name of the \"notes\" HTML file (if one exists). This name must be " +
                 "specified for the notes to be rendered."

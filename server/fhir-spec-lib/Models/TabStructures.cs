@@ -59,7 +59,7 @@ namespace fhir_spec_lib.Models
         /// <value>The name of the profile.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "Profile Name",
             displayName: "Profile Name",
             required: ExcelFieldAttribute.FieldRequiredLevels.Optional,
@@ -109,7 +109,7 @@ namespace fhir_spec_lib.Models
         /// <value>The discriminator.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "Discriminator",
             displayName: "Discriminator",
             required: ExcelFieldAttribute.FieldRequiredLevels.Optional,
@@ -154,7 +154,7 @@ namespace fhir_spec_lib.Models
         /// <value>Information describing the slice.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "Slice Description",
             displayName: "Slice Description",
             required: ExcelFieldAttribute.FieldRequiredLevels.Conditional,
@@ -173,7 +173,7 @@ namespace fhir_spec_lib.Models
         /// <value>The must support.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "Must Support",
             displayName: "Must Support",
             required: ExcelFieldAttribute.FieldRequiredLevels.Optional,
@@ -198,7 +198,7 @@ namespace fhir_spec_lib.Models
         /// <value>The fixed value.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "Value",
             displayName: "Fixed Value",
             required: ExcelFieldAttribute.FieldRequiredLevels.Optional,
@@ -229,7 +229,7 @@ namespace fhir_spec_lib.Models
         /// <value>The pattern.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "Pattern",
             displayName: "Pattern",
             required: ExcelFieldAttribute.FieldRequiredLevels.Optional,
@@ -249,7 +249,7 @@ namespace fhir_spec_lib.Models
         /// <value>The maximum length of the.</value>
         ///-------------------------------------------------------------------------------------------------
         
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "Max Length",
             displayName: "Max Length",
             required: ExcelFieldAttribute.FieldRequiredLevels.Optional,

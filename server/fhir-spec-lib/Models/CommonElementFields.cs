@@ -13,9 +13,8 @@ namespace fhir_spec_lib.Models
     /// <remarks>Gino Canessa, 1/2/2020.</remarks>
     ///-------------------------------------------------------------------------------------------------
 
-    public class CommonElementFields
+    public class CommonElementFields : ExcelTabBase
     {
-
         ///-------------------------------------------------------------------------------------------------
         /// <summary>
         /// Required. This defines the full-path name for the element row. Nodes within the path 
@@ -33,7 +32,7 @@ namespace fhir_spec_lib.Models
         /// <value>The element.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "Element",
             displayName: "Element Name (full-path)",
             required: ExcelFieldAttribute.FieldRequiredLevels.Required,
@@ -64,7 +63,7 @@ namespace fhir_spec_lib.Models
         /// <value>The aliases.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "Aliases",
             displayName: "Aliases",
             required: ExcelFieldAttribute.FieldRequiredLevels.Optional,
@@ -78,66 +77,6 @@ namespace fhir_spec_lib.Models
             )]
         public string Aliases { get; set; }
 
-        private int? cardinalityMin;
-
-        ///-------------------------------------------------------------------------------------------------
-        /// <summary>
-        /// Gets or sets the cardinality minimum, not present is equivalent to a minimum cardinality
-        /// of zero (0)
-        /// </summary>
-        ///
-        /// <value>The cardinality minimum.</value>
-        ///-------------------------------------------------------------------------------------------------
-
-        public int? CardinalityMin
-        {
-            get
-            {
-                return cardinalityMin;
-            }
-            set
-            {
-                cardinalityMin = value;
-                UpdateCardinality(cardinalityMin, cardinalityMax);
-            }
-        }
-
-        private int? cardinalityMax;
-
-        ///-------------------------------------------------------------------------------------------------
-        /// <summary>
-        /// Gets or sets the cardinality maximum, not present is equivalent to a maximum cardinality 
-        /// of * (unlimited).
-        /// </summary>
-        ///
-        /// <value>The cardinality maximum.</value>
-        ///-------------------------------------------------------------------------------------------------
-
-        public int? CardinalityMax
-        {
-            get
-            {
-                return cardinalityMax;
-            }
-            set
-            {
-                cardinalityMax = value;
-                UpdateCardinality(cardinalityMin, cardinalityMax);
-            }
-        }
-
-        [ExcelField(
-            fieldName: "Card.",
-            displayName: "Cardinality",
-            required: ExcelFieldAttribute.FieldRequiredLevels.Required,
-            description:
-                "Required. This indicates the minimum and maximum number of repetitions allowed for the element. " +
-                "For resources, this is constrained to 0..1, 0..*, 1..1 or 1..*. For profiles, any cardinality may " +
-                "be specified, so long as it is a proper constraint on the underlying resource. To prohibit an " +
-                "element, use 0..0."
-            )]
-        private string cardinality;
-
         ///-------------------------------------------------------------------------------------------------
         /// <summary>
         /// Required. This indicates the minimum and maximum number of repetitions allowed for the element. 
@@ -149,7 +88,17 @@ namespace fhir_spec_lib.Models
         /// <value>The cardinality.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        public string Cardinality => cardinality;
+        [ExcelField(
+            fieldName: "Card.",
+            displayName: "Cardinality",
+            required: ExcelFieldAttribute.FieldRequiredLevels.Required,
+            description:
+                "Required. This indicates the minimum and maximum number of repetitions allowed for the element. " +
+                "For resources, this is constrained to 0..1, 0..*, 1..1 or 1..*. For profiles, any cardinality may " +
+                "be specified, so long as it is a proper constraint on the underlying resource. To prohibit an " +
+                "element, use 0..0."
+            )]
+        public string Cardinality { get; set; }
 
         ///-------------------------------------------------------------------------------------------------
         /// <summary>
@@ -162,7 +111,7 @@ namespace fhir_spec_lib.Models
         /// <value>The invariant names.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "Inv.",
             displayName: "Invariant Names",
             required: ExcelFieldAttribute.FieldRequiredLevels.Optional,
@@ -235,7 +184,7 @@ namespace fhir_spec_lib.Models
         /// <value>The FHIR type for this element</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "Type",
             displayName: "Element Type",
             required: ExcelFieldAttribute.FieldRequiredLevels.Conditional,
@@ -309,7 +258,7 @@ namespace fhir_spec_lib.Models
         /// <value>The is modifier.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "Is Modifier",
             displayName: "Is Modifier",
             required: ExcelFieldAttribute.FieldRequiredLevels.Optional,
@@ -329,7 +278,7 @@ namespace fhir_spec_lib.Models
         /// <value>The modifier reason.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "Modifier Reason",
             displayName: "Modifier Reason",
             required: ExcelFieldAttribute.FieldRequiredLevels.Optional,
@@ -351,7 +300,7 @@ namespace fhir_spec_lib.Models
         /// <value>The binding.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "Binding",
             displayName: "Binding",
             required: ExcelFieldAttribute.FieldRequiredLevels.Optional,
@@ -375,7 +324,7 @@ namespace fhir_spec_lib.Models
         /// <value>The example.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "Example",
             displayName: "Example",
             required: ExcelFieldAttribute.FieldRequiredLevels.Optional,
@@ -393,7 +342,7 @@ namespace fhir_spec_lib.Models
         /// <value>The default value.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "Default Value",
             displayName: "Default Value",
             required: ExcelFieldAttribute.FieldRequiredLevels.Optional,
@@ -410,7 +359,7 @@ namespace fhir_spec_lib.Models
         /// <value>The missing meaning.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "Missing Meaning",
             displayName: "Missing Meaning",
             required: ExcelFieldAttribute.FieldRequiredLevels.Optional,
@@ -433,7 +382,7 @@ namespace fhir_spec_lib.Models
         /// <value>The short label.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "Short Label",
             displayName: "Short Label",
             required: ExcelFieldAttribute.FieldRequiredLevels.Recommended,
@@ -459,7 +408,7 @@ namespace fhir_spec_lib.Models
         /// <value>The definition.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "Definition",
             displayName: "Definition",
             required: ExcelFieldAttribute.FieldRequiredLevels.Required,
@@ -484,7 +433,7 @@ namespace fhir_spec_lib.Models
         /// <value>The requirements.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "Requirements",
             displayName: "Requirements",
             required: ExcelFieldAttribute.FieldRequiredLevels.Optional,
@@ -511,7 +460,7 @@ namespace fhir_spec_lib.Models
         /// <value>The comments.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "Comments",
             displayName: "Comments",
             required: ExcelFieldAttribute.FieldRequiredLevels.Optional,
@@ -537,7 +486,7 @@ namespace fhir_spec_lib.Models
         /// <value>to do.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "To Do",
             displayName: "To Do",
             required: ExcelFieldAttribute.FieldRequiredLevels.Optional,
@@ -563,7 +512,7 @@ namespace fhir_spec_lib.Models
         /// <value>The HL7 v3 RIM mapping.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "RIM Mapping",
             displayName: "v3 RIM Mapping",
             required: ExcelFieldAttribute.FieldRequiredLevels.Conditional,
@@ -590,7 +539,7 @@ namespace fhir_spec_lib.Models
         /// <value>The HL7 v2 field mapping.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "v2 Mapping",
             displayName: "v2 Mapping",
             required: ExcelFieldAttribute.FieldRequiredLevels.Conditional,
@@ -625,7 +574,7 @@ namespace fhir_spec_lib.Models
         /// <value>The display hint.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "Display Hint",
             displayName: "Display Hint",
             required: ExcelFieldAttribute.FieldRequiredLevels.Optional,
@@ -648,7 +597,7 @@ namespace fhir_spec_lib.Models
         /// <value>The committee notes.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "Committee Notes",
             displayName: "Committee Notes",
             required: ExcelFieldAttribute.FieldRequiredLevels.Optional,
@@ -666,7 +615,7 @@ namespace fhir_spec_lib.Models
         /// <value>The five ws.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "w5",
             displayName: "Five W's Hint",
             required: ExcelFieldAttribute.FieldRequiredLevels.Conditional,
@@ -674,24 +623,5 @@ namespace fhir_spec_lib.Models
                 "Five W's Hint value (e.g., who, what, where, when, why) - see Resource: FiveWs"
             )]
         public string FiveWs { get; set; }
-
-
-        ///-------------------------------------------------------------------------------------------------
-        /// <summary>Updates the cardinality string based on set Min and Max values</summary>
-        ///
-        /// <remarks>Gino Canessa, 1/2/2020.</remarks>
-        ///
-        /// <param name="min">The minimum.</param>
-        /// <param name="max">The maximum.</param>
-        ///-------------------------------------------------------------------------------------------------
-
-        private void UpdateCardinality(int? min, int? max)
-        {
-            string cardMin = (min.HasValue) ? min.ToString() : "0";
-            string cardMax = (max.HasValue) ? max.ToString() : "*";
-
-            cardinality = $"{min}..{max}";
-        }
-
     }
 }

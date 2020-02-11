@@ -39,14 +39,15 @@ namespace fhir_spec_lib.Attributes
             Required
         }
 
-        string pageName;
-        FieldNameStructures fieldStructure;
+        public string pageName;
+        public FieldNameStructures fieldStructure;
 
         PageAllowedLevels allowedForProfile;
         PageAllowedLevels allowedForResource;
         PageAllowedLevels allowedForDataType;
 
-        string description;
+        public string description;
+
 
         ///-------------------------------------------------------------------------------------------------
         /// <summary>Constructor.</summary>

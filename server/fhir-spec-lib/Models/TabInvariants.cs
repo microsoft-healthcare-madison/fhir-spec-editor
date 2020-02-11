@@ -28,7 +28,7 @@ namespace fhir_spec_lib.Models
             "not taking into account any external state information (date, previously received data, other " +
             "resources, etc.)"
         )]
-    public class TabInvariants
+    public class TabInvariants : ExcelTabBase
     {
         ///-------------------------------------------------------------------------------------------------
         /// <summary>
@@ -40,7 +40,7 @@ namespace fhir_spec_lib.Models
         /// <value>The identifier.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "Id",
             displayName: "Invariant ID",
             required: ExcelFieldAttribute.FieldRequiredLevels.Required,
@@ -60,7 +60,7 @@ namespace fhir_spec_lib.Models
         /// <value>The name.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "Name",
             displayName: "Short Name",
             required: ExcelFieldAttribute.FieldRequiredLevels.Required,
@@ -78,7 +78,7 @@ namespace fhir_spec_lib.Models
         /// <value>The severity.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "Severity",
             displayName: "Failure Severity",
             required: ExcelFieldAttribute.FieldRequiredLevels.Required,
@@ -110,7 +110,7 @@ namespace fhir_spec_lib.Models
         /// <value>The context.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "Context",
             displayName: "Context",
             required: ExcelFieldAttribute.FieldRequiredLevels.Required,
@@ -132,7 +132,7 @@ namespace fhir_spec_lib.Models
         /// <value>The human-friendly expression of the constraint.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "English",
             displayName: "Constraint Description",
             required: ExcelFieldAttribute.FieldRequiredLevels.Optional,
@@ -150,7 +150,7 @@ namespace fhir_spec_lib.Models
         /// <value>The explanation.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "Explanation",
             displayName: "Explanation (rationale)",
             required: ExcelFieldAttribute.FieldRequiredLevels.Conditional,
@@ -167,7 +167,7 @@ namespace fhir_spec_lib.Models
         /// <value>The FHIRPath representation of this constraint.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "Expression",
             displayName: "FHIRPath Expression",
             required: ExcelFieldAttribute.FieldRequiredLevels.Required,
@@ -186,7 +186,7 @@ namespace fhir_spec_lib.Models
         /// <value>The XPath representation of this constraint.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "XPath",
             displayName: "XPath 2.0 Expression",
             required: ExcelFieldAttribute.FieldRequiredLevels.Optional,
@@ -205,7 +205,7 @@ namespace fhir_spec_lib.Models
         /// <value>The OCL representation of this constraint</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "OCL",
             displayName: "OCL",
             required: ExcelFieldAttribute.FieldRequiredLevels.Optional,
@@ -222,7 +222,7 @@ namespace fhir_spec_lib.Models
         /// <value>The RDF representation of this constraint.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "RDF",
             displayName: "RDF",
             required: ExcelFieldAttribute.FieldRequiredLevels.Optional,

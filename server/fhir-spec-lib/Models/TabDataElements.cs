@@ -36,7 +36,7 @@ namespace fhir_spec_lib.Models
         /// <value>The summary.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "Summary",
             displayName: "Summary",
             required: ExcelFieldAttribute.FieldRequiredLevels.Optional,
@@ -58,7 +58,7 @@ namespace fhir_spec_lib.Models
         /// <value>The validation RegEx.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "Regex",
             displayName: "Validation RegEx",
             required: ExcelFieldAttribute.FieldRequiredLevels.Optional,
@@ -87,7 +87,7 @@ namespace fhir_spec_lib.Models
         /// <value>The UML hint.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "UML",
             displayName: "UML Override",
             required: ExcelFieldAttribute.FieldRequiredLevels.Optional,

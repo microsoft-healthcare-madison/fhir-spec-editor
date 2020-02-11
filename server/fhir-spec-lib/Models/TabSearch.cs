@@ -32,7 +32,7 @@ namespace fhir_spec_lib.Models
             "based on extensions.The standard search operations $page, $count and $id do not need to be " +
             "specified, but are added automatically."
         )]
-    public class TabSearch
+    public class TabSearch : ExcelTabBase
     {
         ///-------------------------------------------------------------------------------------------------
         /// <summary>
@@ -43,7 +43,7 @@ namespace fhir_spec_lib.Models
         /// <value>The name.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "Name",
             displayName: "Name",
             required: ExcelFieldAttribute.FieldRequiredLevels.Required,
@@ -68,7 +68,7 @@ namespace fhir_spec_lib.Models
         /// <value>The type of the search.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "Type",
             displayName: "Search Data Type",
             required: ExcelFieldAttribute.FieldRequiredLevels.Required,
@@ -115,7 +115,7 @@ namespace fhir_spec_lib.Models
         /// <value>A list of types of the targets.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "Target Types",
             displayName: "Target Types",
             required: ExcelFieldAttribute.FieldRequiredLevels.Conditional,
@@ -139,7 +139,7 @@ namespace fhir_spec_lib.Models
         /// <value>The element path.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "Path",
             displayName: "Element Path",
             required: ExcelFieldAttribute.FieldRequiredLevels.Conditional,
@@ -162,7 +162,7 @@ namespace fhir_spec_lib.Models
         /// <value>The description.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "Description",
             displayName: "Description",
             required: ExcelFieldAttribute.FieldRequiredLevels.Conditional,

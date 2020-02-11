@@ -10,7 +10,7 @@ namespace fhir_spec_lib.Attributes
     /// <remarks>Gino Canessa, 12/30/2019.</remarks>
     ///-------------------------------------------------------------------------------------------------
 
-    [System.AttributeUsage(System.AttributeTargets.Field, AllowMultiple = false)]
+    [System.AttributeUsage(System.AttributeTargets.Property, AllowMultiple = false)]
     public class ExcelFieldAttribute : System.Attribute
     {
         public enum FieldRequiredLevels 
@@ -22,42 +22,42 @@ namespace fhir_spec_lib.Attributes
             Recommended
         }
 
-        [field: ExcelField(
-            fieldName: "",
-            displayName: "",
-            required: ExcelFieldAttribute.FieldRequiredLevels.Optional,
-            description:
-                "" +
-                "" +
-                "" +
-                "" +
-                "" +
-                "" +
-                "" +
-                "" +
-                "" +
-                "" +
-                "" +
-                "" +
-                "" +
-                "" +
-                "" +
-                "" +
-                "" +
-                "" +
-                "" +
-                "" +
-                "" +
-                "" +
-                "" +
-                "" +
-                "" +
-                "" +
-                "" +
-                "" +
-                "\n" +
-                ""
-            )]
+        //[ExcelField(
+        //    fieldName: "",
+        //    displayName: "",
+        //    required: ExcelFieldAttribute.FieldRequiredLevels.Optional,
+        //    description:
+        //        "" +
+        //        "" +
+        //        "" +
+        //        "" +
+        //        "" +
+        //        "" +
+        //        "" +
+        //        "" +
+        //        "" +
+        //        "" +
+        //        "" +
+        //        "" +
+        //        "" +
+        //        "" +
+        //        "" +
+        //        "" +
+        //        "" +
+        //        "" +
+        //        "" +
+        //        "" +
+        //        "" +
+        //        "" +
+        //        "" +
+        //        "" +
+        //        "" +
+        //        "" +
+        //        "" +
+        //        "" +
+        //        "\n" +
+        //        ""
+        //    )]
         public string fieldName;
         public string displayName;
         public FieldRequiredLevels required;

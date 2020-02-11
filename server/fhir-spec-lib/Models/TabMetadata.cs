@@ -29,7 +29,7 @@ namespace fhir_spec_lib.Models
             "types because they are not separately maintained and published. The metadata for all FHIR " +
             "resources and data types is fixed."
         )]
-    public class TabMetadata
+    public class TabMetadata : ExcelTabBase
     {
         ///-------------------------------------------------------------------------------------------------
         /// <summary>
@@ -43,7 +43,7 @@ namespace fhir_spec_lib.Models
         /// <value>The id.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field:ExcelField(
+        [ExcelField(
             fieldName:"id",
             displayName:"Profile ID",
             required:ExcelFieldAttribute.FieldRequiredLevels.Required,
@@ -66,7 +66,7 @@ namespace fhir_spec_lib.Models
         /// <value>The name.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "name",
             displayName: "Profile Name",
             required: ExcelFieldAttribute.FieldRequiredLevels.Required, 
@@ -84,7 +84,7 @@ namespace fhir_spec_lib.Models
         /// <value>The authoring work group.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "name.author",
             displayName: "Owning WG Name",
             required: ExcelFieldAttribute.FieldRequiredLevels.Required,
@@ -102,7 +102,7 @@ namespace fhir_spec_lib.Models
         /// <value>The owner reference.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "name.reference",
             displayName: "Owning WG URL",
             required: ExcelFieldAttribute.FieldRequiredLevels.Optional,
@@ -121,7 +121,7 @@ namespace fhir_spec_lib.Models
         /// <value>The code.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "code",
             displayName: "Code (Reserved - do not use)",
             required: ExcelFieldAttribute.FieldRequiredLevels.Prohibited,
@@ -141,7 +141,7 @@ namespace fhir_spec_lib.Models
         /// <value>The description.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "description",
             displayName: "Profile Description",
             required: ExcelFieldAttribute.FieldRequiredLevels.Required,
@@ -160,7 +160,7 @@ namespace fhir_spec_lib.Models
         /// <value>The status.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "status",
             displayName: "Profile Status",
             required: ExcelFieldAttribute.FieldRequiredLevels.Required,
@@ -178,7 +178,7 @@ namespace fhir_spec_lib.Models
         /// <value>The date.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "date",
             displayName: "Publish Date",
             required: ExcelFieldAttribute.FieldRequiredLevels.Required,
@@ -202,7 +202,7 @@ namespace fhir_spec_lib.Models
         /// <value>The published structures.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "published.structure",
             displayName: "Published Structure Names",
             required: ExcelFieldAttribute.FieldRequiredLevels.Conditional,
@@ -226,7 +226,7 @@ namespace fhir_spec_lib.Models
         /// <value>The version.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "version",
             displayName: "Version",
             required: ExcelFieldAttribute.FieldRequiredLevels.Prohibited,
@@ -245,7 +245,7 @@ namespace fhir_spec_lib.Models
         /// <value>The extension URI.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "extension.uri",
             displayName: "Profile Base URI",
             required: ExcelFieldAttribute.FieldRequiredLevels.Required,
@@ -264,7 +264,7 @@ namespace fhir_spec_lib.Models
         /// <value>The filename of the introduction file.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "introduction",
             displayName: "Introduction HTML Filename",
             required: ExcelFieldAttribute.FieldRequiredLevels.Conditional,
@@ -283,7 +283,7 @@ namespace fhir_spec_lib.Models
         /// <value>The filename of the notes file.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "notes",
             displayName: "Notes HTML Filename",
             required: ExcelFieldAttribute.FieldRequiredLevels.Conditional,

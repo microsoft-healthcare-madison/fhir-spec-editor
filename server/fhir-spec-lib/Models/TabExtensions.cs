@@ -48,7 +48,7 @@ namespace fhir_spec_lib.Models
         /// <value>The code.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "Code",
             displayName: "Code",
             required: ExcelFieldAttribute.FieldRequiredLevels.Optional,
@@ -98,7 +98,7 @@ namespace fhir_spec_lib.Models
         /// <value>The context type.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "Context Type",
             displayName: "Context Type",
             required: ExcelFieldAttribute.FieldRequiredLevels.Optional,
@@ -136,7 +136,7 @@ namespace fhir_spec_lib.Models
         /// <value>The context.</value>
         ///-------------------------------------------------------------------------------------------------
 
-        [field: ExcelField(
+        [ExcelField(
             fieldName: "Context",
             displayName: "Context",
             required: ExcelFieldAttribute.FieldRequiredLevels.Optional,
